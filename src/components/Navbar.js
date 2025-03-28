@@ -1,22 +1,25 @@
-import { AppBar, Toolbar, IconButton } from '@mui/material';
+import React from 'react';
+import { Link } from 'react-router-dom'; // Importar Link correctamente
+import { AppBar, Toolbar, Button, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
-import Sidebar from './Sidebar';
 
-const Navbar = () => {
-    const [open, setOpen] = useState(false);
-
+const Navbar = ({ toggleSidebar }) => {
     return (
         <AppBar position="static">
             <Toolbar>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    onClick={() => setOpen(true)}
-                >
+                <IconButton edge="start" color="inherit" onClick={toggleSidebar}>
                     <MenuIcon />
                 </IconButton>
-                <Sidebar open={open} onClose={() => setOpen(false)} />
+                {/* Usar Link en lugar de Enlace */}
+                <Button color="inherit" component={Link} to="/">
+                    Inicio
+                </Button>
+                <Button color="inherit" component={Link} to="/pokedex">
+                    Pokédex
+                </Button>
+                <Button color="inherit" component={Link} to="/about">
+                    Acerca
+                </Button>
             </Toolbar>
         </AppBar>
     );

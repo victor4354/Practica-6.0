@@ -1,9 +1,7 @@
-// src/components/About.js
 import React from 'react';
 import PokemonCard from './PokemonCard';
 
 const About = () => {
-    // Asignamos el JSON a una variable
     const data = {
         "count": 1302,
         "items": [
